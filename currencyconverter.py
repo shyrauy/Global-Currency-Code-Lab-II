@@ -76,18 +76,8 @@ def convert():
 logo = Image.open('money-exchange.png')
 logo = logo.resize((40,40))
 logo = ImageTk.PhotoImage(logo)
-platform_name = Label(top, image = logo, compound=LEFT, text = "Currency Converter", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
+platform_name = Label(top, image = logo, compound=LEFT, text = "Currency Converter", height=5, padx=35, pady=30, anchor=CENTER, font=('Roboto bold',16), bg=color3, fg=color1)
 platform_name.place(x=0,y=0)
-
-#main frame
-result = Label(root,text = " ", width= 16,height=2, padx=13, pady=7,relief="solid", anchor=CENTER, font=('Roboto',17),bg=color1, fg=color2)
-result.place(x=45,y=350)
-
-
-
-#right frame to see the currency today
-rate = Label(root ,height=10, width=20,anchor=CENTER, font=('Roboto',15),bg=color1,fg=color2 )
-rate.place(x=350, y=80)
 
 #right frame
 #Not YET WORKING!!!
@@ -116,10 +106,10 @@ box1.place(x=45, y=40)
 
 #arrow
 image = Image.open('arrow.png')
-image = image.resize((40,20))
+image = image.resize((38,15))
 image = ImageTk.PhotoImage(image)
 arrow = Label(main, image=image, bg=color1)
-arrow.place(x=146, y=40)
+arrow.place(x=149, y=42)
 
 #to
 exchangeto_label =  Label(main, width= 8,height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Roboto',10), bg=color1, fg=color1)
@@ -139,6 +129,11 @@ value.place(x=85,y=190)
 #button/convert now
 button = Button(main,text="Convert now", width=19, padx=5, height=1, bg=color3, fg=color1, font=("Roboto 12 bold"),command=convert)
 button.place(x=55, y=190)
+
+#result
+result = Label(root,text = " ", width= 16,height=2, padx=13, pady=7,relief="solid", anchor=CENTER, font=('Roboto',17),bg=color1, fg=color2)
+result.place(x=45,y=350)
+
 
 root.mainloop()
 
