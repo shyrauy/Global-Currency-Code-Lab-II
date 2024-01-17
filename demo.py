@@ -4,11 +4,11 @@ import json
 url = "https://currency-converter18.p.rapidapi.com/api/v1/convert"
 
 #currency
-currency_1 = "AED", "USD", "EUR", "GBP", "PESO", "YEN"
-currency_2 =  "GBP" ,"AED", "USD", "EUR", "PESO", "YEN"
+first_currency = "AED", "USD", "EUR", "GBP", "PHP", "YEN"
+second_currency =  "GBP" ,"AED", "USD", "EUR", "PHP", "YEN"
 amount = "1000"
 
-querystring = {"from":currency_1,"to":currency_2,"amount":amount}
+querystring = {"from":first_currency,"to":second_currency,"amount":amount}
 
 headers = {
 	"X-RapidAPI-Key": "d41b054c73msh562ffc028f3c701p138de1jsn777fe07e3558",

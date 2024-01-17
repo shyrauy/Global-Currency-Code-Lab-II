@@ -1,0 +1,13 @@
+Currency Rate Today
+(USD Based Convertion)
+
+AED = 3.67306
+AFN = 91.80254
+ALL = 108.22904
+AMD = 480.41659
+ANG = 0.272264
+AZN = 0.59
+BAM = 1.80
+BBD = 2.02
+BOB = 6.91
+BIF = 2850.88

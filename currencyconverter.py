@@ -9,7 +9,7 @@ import json
 #screen
 root = Tk()
 root.title("Currency GLobal Money Converter")
-root.geometry("800x450")
+root.geometry("700x450")
 root.configure(bg='#FFFFFF')
 #root.resizable()
 
@@ -33,24 +33,24 @@ def convert():
     url = "https://currency-converter18.p.rapidapi.com/api/v1/convert"
 
     #currency
-    currency_1 = box1.get()
-    currency_2 = box2.get()
+    first_currency = box1.get()
+    second_currency = box2.get()
     amount = value.get()
 
-    querystring = {"from":currency_1,"to":currency_2,"amount":amount}
+    querystring = {"from":first_currency,"to":second_currency,"amount":amount}
     
 
-    if currency_2 =='AED':
+    if second_currency =='AED':
         symbol = 'د. إ'
-    elif currency_2 == 'USD':
+    elif second_currency == 'USD':
         symbol= '$'
-    elif currency_2 =='EUR':
+    elif second_currency =='EUR':
         symbol = '€'
-    elif currency_2 =='GBP':
+    elif second_currency =='GBP':
         symbol = '£'
-    elif currency_2 =='PESO':
+    elif second_currency =='PHP':
         symbol = '₱'
-    elif currency_2 =='JPY':
+    elif second_currency =='JPY':
         symbol = '¥'
     
 
@@ -73,26 +73,37 @@ def convert():
 
 
 #top frame
-icon = Image.open('money-exchange.png')
-icon = icon.resize((40,40))
-icon = ImageTk.PhotoImage(icon)
-app_name = Label(top, image = icon, compound=LEFT, text = "Currency Converter", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
-app_name.place(x=0,y=0)
-
-#right frame
-right_name =Label(top, compound=RIGHT, text = "Currency Exchange Today ", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
-right_name.place(x=300,y=0)
-
+logo = Image.open('money-exchange.png')
+logo = logo.resize((40,40))
+logo = ImageTk.PhotoImage(logo)
+platform_name = Label(top, image = logo, compound=LEFT, text = "Currency Converter", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
+platform_name.place(x=0,y=0)
 
 #main frame
 result = Label(root,text = " ", width= 16,height=2, padx=13, pady=7,relief="solid", anchor=CENTER, font=('Roboto',17),bg=color1, fg=color2)
 result.place(x=45,y=350)
 
-#right frame fo forex charts
+
+
+#right frame to see the currency today
+rate = Label(root ,height=10, width=20,anchor=CENTER, font=('Roboto',15),bg=color1,fg=color2 )
+rate.place(x=350, y=80)
+
+#right frame
+#Not YET WORKING!!!
+#right_name =Label(main, compound=RIGHT, text = "Currency Exchange Today ", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto bold',15), bg=color2, fg=color1)
+#right_name.place(x=300,y=1)
+
+
+with open('rate.txt') as file_handler:
+    contents = file_handler.read()
+    content_label = Label(root, height=15, width=20,text=contents, font=('Roboto',15),bg=color1,fg=color2 ) 
+    content_label.place(x=400, y=80)
+
 
 
 #currency- add more currency
-currency = ['AED', 'USD', 'EUR', 'GBP', 'PESO', 'JPY']
+currency = ['AED', 'USD', 'EUR', 'GBP', 'PHP', 'JPY']
 
 #from
 exchange_label =  Label(top, width= 8,height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Roboto',10), bg=color1, fg=color1)
@@ -111,7 +122,7 @@ arrow = Label(main, image=image, bg=color1)
 arrow.place(x=146, y=40)
 
 #to
-exchangeto_label =  Label(top, width= 8,height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Roboto',10), bg=color1, fg=color1)
+exchangeto_label =  Label(main, width= 8,height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Roboto',10), bg=color1, fg=color1)
 exchangeto_label.place(x=80, y=150)
 
 #the choices from what do you want to exchange part 2
