@@ -33,8 +33,8 @@ def convert():
     url = "https://currency-converter18.p.rapidapi.com/api/v1/convert"
 
     #currency
-    currency_1 = combo1.get()
-    currency_2 = combo2.get()
+    currency_1 = box1.get()
+    currency_2 = box2.get()
     amount = value.get()
 
     querystring = {"from":currency_1,"to":currency_2,"amount":amount}
@@ -44,13 +44,13 @@ def convert():
         symbol = 'د. إ'
     elif currency_2 == 'USD':
         symbol= '$'
-    elif currency_2 =='EURO':
+    elif currency_2 =='EUR':
         symbol = '€'
     elif currency_2 =='GBP':
         symbol = '£'
     elif currency_2 =='PESO':
         symbol = '₱'
-    elif currency_2 =='YEN':
+    elif currency_2 =='JPY':
         symbol = '¥'
     
 
@@ -79,6 +79,11 @@ icon = ImageTk.PhotoImage(icon)
 app_name = Label(top, image = icon, compound=LEFT, text = "Currency Converter", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
 app_name.place(x=0,y=0)
 
+#right frame
+right_name =Label(top, compound=RIGHT, text = "Currency Exchange Today ", height=5, padx=40, pady=30, anchor=CENTER, font=('Roboto',15), bg=color3, fg=color1)
+right_name.place(x=300,y=0)
+
+
 #main frame
 result = Label(root,text = " ", width= 16,height=2, padx=13, pady=7,relief="solid", anchor=CENTER, font=('Roboto',17),bg=color1, fg=color2)
 result.place(x=45,y=350)
@@ -87,16 +92,16 @@ result.place(x=45,y=350)
 
 
 #currency- add more currency
-currency = ['AED', 'USD', 'EURO', 'GBP', 'PESO', 'YEN']
+currency = ['AED', 'USD', 'EUR', 'GBP', 'PESO', 'JPY']
 
 #from
 exchange_label =  Label(top, width= 8,height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Roboto',10), bg=color1, fg=color1)
 exchange_label.place(x=40, y=150)
 
 #the choices from what do you want to exchange
-combo1 = ttk.Combobox(main, width=8, justify=CENTER, font=('Roboto 12 bold'))
-combo1['values'] = (currency)
-combo1.place(x=45, y=40)
+box1 = ttk.Combobox(main, width=8, justify=CENTER, font=('Roboto 12 bold'))
+box1['values'] = (currency)
+box1.place(x=45, y=40)
 
 #arrow
 image = Image.open('arrow.png')
@@ -110,9 +115,9 @@ exchangeto_label =  Label(top, width= 8,height=1,pady=0, padx=0, relief="flat", 
 exchangeto_label.place(x=80, y=150)
 
 #the choices from what do you want to exchange part 2
-combo2 = ttk.Combobox(main, width=8, justify=CENTER, font=('Roboto 12 bold'))
-combo2['values'] = (currency)
-combo2.place(x=200, y=40)
+box2 = ttk.Combobox(main, width=8, justify=CENTER, font=('Roboto 12 bold'))
+box2['values'] = (currency)
+box2.place(x=200, y=40)
 
 #the amount
 value_text = Label(root, text="Amount", justify=LEFT, font=("Roboto 7 bold"),fg=color2, bg=color1)

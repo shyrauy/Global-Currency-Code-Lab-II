@@ -4,8 +4,8 @@ import json
 url = "https://currency-converter18.p.rapidapi.com/api/v1/convert"
 
 #currency
-currency_1 = "AED",# "USD", "EURO", "GBP", "PESO", "YEN"
-currency_2 =  "USD" #"AED", "USD", "EURO", "GBP", "PESO", 
+currency_1 = "AED", "USD", "EUR", "GBP", "PESO", "YEN"
+currency_2 =  "GBP" ,"AED", "USD", "EUR", "PESO", "YEN"
 amount = "1000"
 
 querystring = {"from":currency_1,"to":currency_2,"amount":amount}
