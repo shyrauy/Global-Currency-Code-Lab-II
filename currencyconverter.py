@@ -8,7 +8,7 @@ import json
 
 #screen
 root = Tk()
-root.title("Currency GLobal Money Converter")
+root.title("Global Currency Money Converter")
 root.geometry("700x450")
 root.configure(bg='#FFFFFF')
 #root.resizable()
